@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum GameMode
 {
@@ -62,6 +63,10 @@ public class MissionDemolition : MonoBehaviour {
         // Show the data in the GUITexts
         gtLevel.text = "Level: " + (level + 1) + " of " + levelMax;
         gtScore.text = "Shots Taken: " + shotsTaken;
+        if(shotsTaken == 3)
+        {
+            SceneManager.LoadScene("_Scene_GameOver");
+        }
     }
     void Update()
     {
