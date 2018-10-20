@@ -15,7 +15,7 @@ public class HighScore : MonoBehaviour {
         }
         for (int i = 0; i < 4; i++)
         {
-            PlayerPrefs.SetInt(i + "HighScore", score);
+            PlayerPrefs.SetInt(i + "HighScore", 0);
         }
 	}
 	
@@ -26,12 +26,13 @@ public class HighScore : MonoBehaviour {
         {
             score = 1000;
         }
+        score = score - (int)time;
         Text gt = this.GetComponent<Text>();
-        gt.text = "Score lvl " + MissionDemolition.getLevel() + ": " + (score - (int)time);
+        gt.text = "Score lvl " + MissionDemolition.getLevel() + ": " + score;
 
-        if (score > PlayerPrefs.GetInt(MissionDemolition.getLevel() +"HighScore"))
+        if ((1000-score) > PlayerPrefs.GetInt(MissionDemolition.getLevel() +"HighScore"))
         {
-            PlayerPrefs.SetInt(MissionDemolition.getLevel() + "HighScore", score - (int)time);
+            PlayerPrefs.SetInt(MissionDemolition.getLevel() + "HighScore", (1000 - score));
         }
 	}
 }

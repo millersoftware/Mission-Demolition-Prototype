@@ -63,7 +63,7 @@ public class MissionDemolition : MonoBehaviour {
         // Show the data in the GUITexts
         gtLevel.text = "Level: " + (level + 1) + " of " + levelMax;
         gtScore.text = "Shots Taken: " + shotsTaken;
-        if(shotsTaken == 3)
+        if(shotsTaken == 4)
         {
             SceneManager.LoadScene("_Scene_GameOver");
         }
