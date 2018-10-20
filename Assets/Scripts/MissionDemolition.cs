@@ -134,4 +134,8 @@ public class MissionDemolition : MonoBehaviour {
     {
         S.shotsTaken++;
     }
+    public static int getLevel()
+    {
+        return S.level + 1;
+    }
 }

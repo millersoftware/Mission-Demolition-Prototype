@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HighScore : MonoBehaviour {
     static public int score = 0;
@@ -12,15 +13,18 @@ public class HighScore : MonoBehaviour {
         }
         for (int i = 0; i < 4; i++)
         {
-            PlayerPrefs.SetInt((string)i + "HighScore", score);
+            PlayerPrefs.SetInt(i + "HighScore", score);
         }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(score > PlayerPrefa.GetInt((string)MissionDemolition.level +"HighScore"))
+        Text gt = this.GetComponent<Text>();
+        gt.text = "High Score lvl " + MissionDemolition.getLevel() + ": " + score;
+
+        if (score > PlayerPrefs.GetInt(MissionDemolition.getLevel() +"HighScore"))
         {
-            PlayerPrefs.SetInt((string)MissionDemolition.level + "HighScore", score);
+            PlayerPrefs.SetInt(MissionDemolition.getLevel() + "HighScore", score);
         }
 	}
 }
